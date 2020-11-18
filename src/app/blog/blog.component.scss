@@ -1,0 +1,477 @@
+.header {
+    font-family: "Roboto";
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(35, 35, 35);
+    padding: 10px;
+}
+
+.header__title {
+    font-family: "Goldman";
+    color: white;
+}
+
+.signIn {
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    background-color: inherit;
+    color: #428400;
+    border: 1px solid #428400;
+    height: 35px;
+    width: 55px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    &:hover {
+        background-color: rgba(66, 132, 0, 0.2);
+    }
+    &:active {
+        margin-right: 1px;
+        box-shadow: 0px 0px 1px 1px rgb(66, 132, 0);
+    }
+}
+
+.addPost {
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    background-color: inherit;
+    color: #428400;
+    border: 1px solid #428400;
+    height: 35px;
+    width: 70px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    &:hover {
+        background-color: rgba(66, 132, 0, 0.2);
+    }
+    &:active {
+        margin-right: 1px;
+        box-shadow: 0px 0px 1px 1px rgb(66, 132, 0);
+    }
+}
+
+.user {
+    user-select: none;
+    outline: none;
+    height: 35px;
+    width: 50px;
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+.signUp {
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    background-color: inherit;
+    color: #003b84;
+    border: 1px solid #003b84;
+    height: 35px;
+    width: 60px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    &:hover {
+        background-color: rgba(0, 59, 132, 0.2);
+    }
+    &:active {
+        margin-left: 1px;
+        box-shadow: 0px 0px 1px 1px rgb(0, 59, 132);
+    }
+}
+
+.signOut {
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    background-color: inherit;
+    color: orange;
+    border: 1px solid orange;
+    height: 35px;
+    width: 70px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    &:hover {
+        background-color: rgba(255, 165, 0, 0.2);
+    }
+    &:active {
+        margin-left: 1px;
+        box-shadow: 0px 0px 1px 1px orange;
+    }
+}
+
+.container {
+    user-select: none;
+    width: 80%;
+    margin: 0px auto;
+}
+
+.post {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    min-height: 130px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.post__left--title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.post__left--by {
+    color: rgba($color: #000000, $alpha: 0.6);
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.post__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.post__right-bottom {
+    margin-top: 20px;
+}
+
+.edit {
+    cursor: pointer;
+    user-select: none;
+    width: 45px;
+    height: 28px;
+    outline: none;
+    background-color: orange;
+    border: 1px solid orange;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    &:hover {
+        background-color: rgb(220, 143, 0);
+    }
+    &:active {
+        box-shadow: 0px 0px 1px 1px orange;
+    }
+}
+
+.delete {
+    cursor: pointer;
+    user-select: none;
+    width: 50px;
+    height: 28px;
+    outline: none;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: orangered;
+    border: 1px solid orangered;
+    color: white;
+    &:hover {
+        background-color: rgb(221, 59, 0);
+    }
+    &:active {
+        box-shadow: 0px 0px 1px 1px orangered;
+    }
+}
+
+.popupSingIn {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 0;
+    left: 0;
+}
+
+.popup__body {
+    height: 245px;
+    width: 350px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 120px auto;
+}
+
+.popup__content--title {
+    font-size: 18px;
+    user-select: none;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
+}
+
+.imgClose {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    &:hover {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+.popup__content--input {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 140px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    & label {
+        user-select: none;
+    }
+}
+
+.popup__content--button {
+    user-select: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.popup__input {
+    height: 26px;
+    cursor: pointer;
+    padding-left: 3px;
+    outline: none;
+    border: 2px solid rgba($color: #000000, $alpha: 0.5);
+    border-radius: 4px;
+    &:focus {
+        border: 2px solid rgba($color: rgb(173, 216, 230), $alpha: 0.5);
+        box-shadow: 0px 0px 1px 1px rgb(173, 216, 230);
+    }
+}
+
+.close {
+    cursor: pointer;
+    margin-top: 10px;
+    height: 30px;
+    width: 55px;
+    outline: none;
+    background-color: rgb(127, 129, 135);
+    color: white;
+    border: 1px solid rgb(127, 129, 135);
+    border-radius: 3px;
+    &:active {
+        box-shadow: 0px 0px 1px 1px rgb(127, 129, 135);
+    }
+    &:hover {
+        background-color: rgb(114, 115, 118);
+    }
+}
+
+.submit {
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 30px;
+    width: 55px;
+    outline: none;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 3px;
+    &:active {
+        box-shadow: 0px 0px 1px 1px green;
+    }
+    &:hover {
+        background-color: rgb(0, 96, 0);
+    }
+}
+
+.submitE {
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 30px;
+    width: 75px;
+    outline: none;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 3px;
+    &:active {
+        box-shadow: 0px 0px 1px 1px green;
+    }
+    &:hover {
+        background-color: rgb(0, 96, 0);
+    }
+}
+
+.popupAddPost {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 0;
+    left: 0;
+}
+
+.popupAddPost__body {
+    height: 275px;
+    width: 350px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 120px auto;
+}
+
+.popupAddPost__content--title {
+    font-size: 18px;
+    user-select: none;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
+}
+
+.popupAddPost__content--input {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 170px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    & label {
+        user-select: none;
+    }
+}
+
+.popup__input {
+    height: 26px;
+    cursor: pointer;
+    padding-left: 3px;
+    outline: none;
+    border: 2px solid rgba($color: #000000, $alpha: 0.5);
+    border-radius: 4px;
+    &:focus {
+        border: 2px solid rgba($color: rgb(173, 216, 230), $alpha: 0.5);
+        box-shadow: 0px 0px 1px 1px rgb(173, 216, 230);
+    }
+}
+
+.popupAddPost__content--button {
+    user-select: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.popupAddPost__textarea {
+    resize: none;
+    padding: 5px;
+    max-height: 80px;
+    border: 2px solid rgba($color: #000000, $alpha: 0.5);
+    outline: none;
+    border-radius: 5px;
+    &:focus {
+        border: 2px solid rgba($color: rgb(173, 216, 230), $alpha: 0.5);
+        box-shadow: 0px 0px 1px 1px rgb(173, 216, 230);
+    }
+}
+
+.signUpPopup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 0;
+    left: 0;
+}
+
+.signUpPopup__body {
+    height: 295px;
+    width: 350px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 120px auto;
+}
+
+.signUpPopup__content--title {
+    user-select: none;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
+}
+
+.signUpPopup__content--input {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 185px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.signUpPopup__content--button {
+    user-select: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.signUpPopup__input {
+    height: 26px;
+    cursor: pointer;
+    padding-left: 3px;
+    outline: none;
+    border: 2px solid rgba($color: #000000, $alpha: 0.5);
+    border-radius: 4px;
+    &:focus {
+        border: 2px solid rgba($color: rgb(173, 216, 230), $alpha: 0.5);
+        box-shadow: 0px 0px 1px 1px rgb(173, 216, 230);
+    }
+}
+
+.signUpSubmit{
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 30px;
+    width: 65px;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border: 1px solid blue;
+    border-radius: 3px;
+    &:active {
+        box-shadow: 0px 0px 1px 1px blue;
+    }
+    &:hover {
+        background-color: rgb(0, 0, 204);
+    }
+}

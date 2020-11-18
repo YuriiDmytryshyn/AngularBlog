@@ -1,0 +1,129 @@
+<header class="header">
+    <div class="header__title">
+        <h1>Angular Blog</h1>
+    </div>
+    <div class="header__button">
+        <button *ngIf="IsCheack" (click)="signInClose()" class="signIn">Sign In</button>
+        <button *ngIf="!IsCheack" (click)="clearAddPost()" class="addPost">Add post</button>
+        <button *ngIf="IsLogin" class="user">{{ whoWillFast }}</button>
+        <button *ngIf="IsCheack" (click)="SignUp()" class="signUp">Sign Up</button>
+        <button *ngIf="!IsCheack" (click)="signOut()" class="signOut">Sign Out</button>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div *ngIf="!edDel;else admin">
+                <div class="post" *ngFor="let blog of allBlogs;index as i">
+                    <div class="post__left">
+                        <span class="post__left--title">{{ blog.topic }}</span>
+                        <span class="post__left--by">Posted by: {{ blog.postedBy }}</span>
+                        <span class="post__left--text">{{ blog.message }}</span>
+                    </div>
+                    <div class="post__right">
+                        <div class="post__right--top">
+                            <span class="post__right--date">🕒 {{ blog.date | date:'H:mm, dd.MM.yyyy' }}</span>
+                        </div>
+                        <div *ngIf="blog.postedBy !== whoWillFast;else editDelBut"></div>
+                        <ng-template #editDelBut>
+                            <div *ngIf="IsLogin" class="post__right-bottom">
+                                <button (click)="editPost(i)" class="edit">Edit</button>
+                                <button (click)="deleteBlog(blog)" class="delete">Delete</button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<ng-template #admin>
+    <div *ngIf="edDel">
+        <div class="post" *ngFor="let blog of allBlogs;index as i">
+            <div class="post__left">
+                <span class="post__left--title">{{ blog.topic }}</span>
+                <span class="post__left--by">Posted by: {{ blog.postedBy }}</span>
+                <span class="post__left--text">{{ blog.message }}</span>
+            </div>
+            <div class="post__right">
+                <div class="post__right--top">
+                    <span class="post__right--date">🕒 {{ blog.date | date:'H:mm, dd.MM.yyyy' }}</span>
+                </div>
+                <div *ngIf="IsLogin" class="post__right-bottom">
+                    <button (click)="editPost(i)" class="edit">Edit</button>
+                    <button (click)="deleteBlog(blog)" class="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<div class="popupSingIn" *ngIf="SignInCheack">
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__content--title">
+                <h4>Sing In</h4>
+                <img (click)="signInClose()" class="imgClose" src="assets/images/close.png" alt="close">
+            </div>
+            <div class="popup__content--input">
+                <label for="popup__input--email">Email:</label>
+                <input [(ngModel)]="signInEmail" name="signInEmail" id="popup__input--email" class="popup__input"
+                    type="text">
+                <label for="popup__input--password">Password:</label>
+                <input [(ngModel)]="signInPassword" name="signInPassword" id="popup__input--password"
+                    class="popup__input" type="text">
+            </div>
+            <div class="popup__content--button">
+                <button (click)="signInClose()" class="close">Close</button>
+                <button (click)="signInSubmit()" class="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popupAddPost" *ngIf="AddPostCheack">
+    <div class="popupAddPost__body">
+        <div class="popupAddPost__content">
+            <div class="popupAddPost__content--title">
+                <h4>Add post</h4>
+                <img (click)="clearAddPost()" class="imgClose" src="assets/images/close.png" alt="close">
+            </div>
+            <div class="popupAddPost__content--input">
+                <label for="popupAddPost__input--title">Title:</label>
+                <input [(ngModel)]="addPostTitle" name="addPostTitle" id="popupAddPost__input--title"
+                    class="popup__input" type="text">
+                <label for="popupAddPost__textarea">Text:</label>
+                <textarea [(ngModel)]="addPostTextarea" name="addPostTextarea" id="popupAddPost__textarea"
+                    class="popupAddPost__textarea" cols="30" rows="10"></textarea>
+            </div>
+            <div class="popupAddPost__content--button">
+                <button (click)="clearAddPost()" class="close">Close</button>
+                <button *ngIf="IsChangeAddPost" (click)="newBlog()" class="submit">Post</button>
+                <button *ngIf="!IsChangeAddPost" (click)="updateBlog()" class="submitE">Edit Post</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="signUpPopup" *ngIf="SignUpCheack">
+    <div class="signUpPopup__body">
+        <div class="signUpPopup__content">
+            <div class="signUpPopup__content--title">
+                <h4>Add phone</h4>
+                <img (click)="singUpClear()" class="imgClose" src="assets/images/close.png" alt="close">
+            </div>
+            <div class="signUpPopup__content--input">
+                <label for="signUpPopup__username">Username:</label>
+                <input [(ngModel)]="signUpUsername" name="signUpUsername" id="signUpPopup__username"
+                    class="signUpPopup__input" type="text">
+                <label for="signUpPopup__email">Email:</label>
+                <input [(ngModel)]="signUpEmail" id="signUpPopup__email" class="signUpPopup__input" type="text">
+                <label for="signUpPopup__password">Password:</label>
+                <input [(ngModel)]="signUpPassword" name="signUpPassword" id="signUpPopup__password"
+                    class="signUpPopup__input" type="text">
+            </div>
+            <div class="signUpPopup__content--button">
+                <button (click)="singUpClear()" class="close">Close</button>
+                <button (click)="signUpSubmit()" class="signUpSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
